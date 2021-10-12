@@ -19,7 +19,7 @@ This repository is for a bug report with Snapchat as of Tuesday, October
 
 This repository makes it possible to reproduce this bug. In
 `Public/MicController.js`, whenever the user taps the screen, a recording
-begins and the following should be logged:
+begins and the following _should_ be logged:
 
 ```
 [MicController.js:25] Locked recording
@@ -31,7 +31,8 @@ begins and the following should be logged:
 [MicController.js:45] Unlocked recording
 ```
 
-On an iPhone 7 or an iPad Pro 12.9", the following gets logged in the debug
+Unfortunately, the output above is only produced in the Lens Studio simulator.
+On an iPhone 7 and an iPad Pro 12.9", the following gets logged in the debug
 tools:
 
 ```
@@ -47,7 +48,8 @@ tools:
 
 ## Fixing the script
 
-Interestingly, it is possible to make it work on mobile by making a simple change:
+Interestingly, it is possible to make the mic work on mobile by making a
+simple change:
 
 1. Open `snap-bug-mic.lsproj` in Lens Studio.
 2. Click `MicController` in the Objects pane.
@@ -56,5 +58,4 @@ Interestingly, it is possible to make it work on mobile by making a simple chang
    described above.
 
 Unfortunately, this fix is not really a fix because the whole point of this
-report is to show that we cannot use multiple outputs. By removing the
-second Audio Output asset from use, of course, the script works.
+report is to show that we cannot use multiple outputs.
